@@ -30,7 +30,7 @@ namespace TesteSysMapTesteUnitario.TesteUnitario
 
             Usuario.Nome = "Guilherme Grillo";
             Usuario.Email = "guigs@email.com";
-            Usuario.DataNascimento = "05/05/2000";
+            Usuario.DataNascimento = "05052000";
             Usuario.Senha = "senha1234";
             Usuario.Foto = "LINKDAFOTO";
 
