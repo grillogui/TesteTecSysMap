@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Threading.Tasks;
-using TesteSysMap.src.contexto;
-using TesteSysMap.src.modelos;
 
 
 namespace TesteSysMapTesteUnitario.TesteUnitario

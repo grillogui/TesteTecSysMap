@@ -21,3 +21,4 @@ namespace TesteSysMap.src.repositorios
         Task<UsuarioModelo> PegarUsuarioPeloIdAsync(int id);
         Task<UsuarioModelo> PegarUsuarioPeloEmailAsync(string email);
     }
+}
