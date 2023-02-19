@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TesteSysMap.src.contexto;
+using TesteSysMap.src.repositorios;
+using TesteSysMap.src.repositorios.implementacoes;
 
 namespace TesteSysMap
 {
@@ -31,7 +33,15 @@ namespace TesteSysMap
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json")
                 .Build();
-            services.AddDbContext<TesteSysMapContexto>(opt => opt.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<TesteSysMapContexto>(
+               opt => opt.
+               UseSqlServer(config.GetConnectionString("DefaultConnection")));
+
+            // Repositorios
+            services.AddScoped<IUsuario, UsuarioRepositorio>();
+            services.AddScoped<ITarefa, TarefaRepositorio>();
+
             //Configuração de Controle
             services.AddControllers();
         }
