@@ -7,9 +7,9 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
 - C#
 - ASP.NET
--SQLServer
--JavaScript
--Jquery
+- SQLServer
+- JavaScript
+- Jquery
 
 
 <section class="devs">
