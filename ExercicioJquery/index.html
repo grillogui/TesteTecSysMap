@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"> </script>
+    <script src="jquery.maskMoney.js" type="text/javascript"></script>
+</head>
+    <body>
+        <form action="" method="post" id="form">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" />
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" />
+            </div>
+            <div>
+                <label for="salario">salario:</label>
+                <input type="number" id="salario"/>
+            </div>
+            <div>
+                <label for="msg">Mensagem:</label>
+                <textarea id="msg"></textarea>
+            </div>
+            <div>
+                <label for="msg">alertar:</label>
+                <input type="checkbox" name="alertar" checked id="alert">
+            </div>
+            <div>
+                <label for="submit">Enviar:</label>
+                <button type="submit"  id="send">Enviar</button>
+            </div>
+        </form>
+    </body>
+    <script>
+       
+        //01
+        $("#form").on('submit', function(){
+            event.preventDefault();
+            var respostaNome = $("#nome").val();
+            var respostaEmail = $("#email").val();
+            var respostaSalario = $("#salario").val();
+            var respostaMensagem = $("#msg").val();
+        
+            console.log(respostaNome)
+            console.log(respostaEmail)
+            console.log(respostaSalario)
+            console.log(respostaMensagem)
+        });
+
+        //02
+        $("#form").on('submit', function(){
+            event.preventDefault();
+            $.each($("input[name='alertar']:checked"), function(){         
+                console.log("o usuário deve ser alertado")
+            }); 
+            $.each($("input[name='alertar']:not checked"), function(){         
+                console.log("o usuário não deseja ser alertado”")
+            });            
+        });
+        
+        //03
+        $("input, textarea").blur(function(){
+            event.preventDefault();
+            if($(this).val() == ""){
+                $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+            }
+        });
+
+        //04
+        $("#send").attr("disabled", true);
+        $("#salario").on('input', function(event){
+            event.preventDefault();
+            var conteudo = $("#salario").val();
+            if(conteudo !== null && conteudo !== ''){
+                $("#send").attr("disabled", false);
+            }
+            else{
+                $("#send").attr("disabled", true);
+            }
+        })
+
+        //05
+        // $(function(){
+        //    $('#salario').maskMoney({
+        //      prefix:'R$ ',
+        //      allowNegative: true,
+        //      thousands:'.', decimal:',',
+        //      affixesStay: true});
+        //})
+
+    </script>
+</html>
